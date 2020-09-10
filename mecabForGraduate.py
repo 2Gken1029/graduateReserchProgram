@@ -19,12 +19,14 @@ string_file.close
 
 # リスト内文字列の"\n"を削除
 string_list = [s.replace('\n', '') for s in string_list]
-print(string_list)
 
 mecab.parse('')#文字列がGCされるのを防ぐ
-node = mecab.parseToNode(string_list)
-while node:
-    #単語を取得
-    word = node.surface
-    #次の単語に進める
-    node = node.next
+
+for string in string_list:
+    node = mecab.parseToNode(string)
+    while node:
+        #単語を取得
+        word = node.surface
+        print(word)
+        #次の単語に進める
+        node = node.next
