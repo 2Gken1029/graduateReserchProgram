@@ -1,6 +1,8 @@
 #! python3
 # wordFind.py - 単語リストにある単語が文章ファイルにどれほどでてくるか
 
+# githubからテスト
+
 import os, sys
 
 word_file = open('wordList.txt') # 単語リストを読み込み
