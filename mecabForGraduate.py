@@ -1,5 +1,5 @@
 #! python3
-# mecabForGraduate.py - mecabSampleCodeを改変
+# mecabForGraduate.py - mecabSampleCodeを改変、単語ごとに区切る
 
 # Mecabがどこにあるか調べるコマンド
 # $ echo `mecab-config --dicdir`"/mecab-ipadic-neologd"
@@ -22,11 +22,20 @@ string_list = [s.replace('\n', '') for s in string_list]
 
 mecab.parse('')#文字列がGCされるのを防ぐ
 
+word_list = []
 for string in string_list:
     node = mecab.parseToNode(string)
     while node:
         #単語を取得
         word = node.surface
-        print(word)
+        word_list.append(word)
         #次の単語に進める
         node = node.next
+
+# リスト内の空白要素を削除
+for i in len(word_list):
+    if word_list[i] == "":
+        del word_list[i]
+        i = 0
+
+print(word_list)
