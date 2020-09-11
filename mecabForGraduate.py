@@ -33,6 +33,5 @@ for string in string_list:
         node = node.next
 
 # リスト内の空白要素を削除
-print(word_list)
 new_wordlist = [s for s in word_list if s != '']
 print(new_wordlist)
