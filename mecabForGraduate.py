@@ -33,9 +33,6 @@ for string in string_list:
         node = node.next
 
 # リスト内の空白要素を削除
-for i in len(word_list):
-    if word_list[i] == "":
-        del word_list[i]
-        i = 0
-
 print(word_list)
+new_wordlist = [s for s in word_list if s != '']
+print(new_wordlist)
