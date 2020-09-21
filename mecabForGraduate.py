@@ -36,5 +36,7 @@ for string in string_list:
 wordlist = [s for s in word_list if s != '']
 
 #同じ単語の出現回数を調べる
-count = collections.Counter(wordlist)
-print(count)
+count_result = collections.Counter(wordlist) # 辞書型を返す
+for k, v in count_result.items():
+    if 100> v > 30: # 頻度回数調整
+        print(k, v)
