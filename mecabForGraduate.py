@@ -4,7 +4,7 @@
 # Mecabがどこにあるか調べるコマンド
 # $ echo `mecab-config --dicdir`"/mecab-ipadic-neologd"
 
-import MeCab, sys, os
+import MeCab, sys, os, collections
 
 mecab = MeCab.Tagger('-d /usr/local/lib/mecab/dic/mecab-ipadic-neologd') # -d以下はechoで調べたパス
 
@@ -34,4 +34,7 @@ for string in string_list:
 
 # リスト内の空白要素を削除
 wordlist = [s for s in word_list if s != '']
-print(wordlist)
+
+#同じ単語の出現回数を調べる
+count = collections.Counter(wordlist)
+print(count)
