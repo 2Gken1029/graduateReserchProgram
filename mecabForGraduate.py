@@ -22,6 +22,7 @@ string_list = [s.replace('\n', '') for s in string_list]
 
 mecab.parse('')#文字列がGCされるのを防ぐ
 
+# 単語判別
 word_list = []
 for string in string_list:
     node = mecab.parseToNode(string)
