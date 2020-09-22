@@ -43,5 +43,6 @@ count_result = collections.Counter(wordlist) # 辞書型を返す
 for k, v in count_result.items():
     if 100 > v & v > 30: # 頻度回数調整
         plt.bar(k,v)
+        print(k)
 plt.xticks(rotation=90) # X軸ラベルの向きを調整
 plt.show()
