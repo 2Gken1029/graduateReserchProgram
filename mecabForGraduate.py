@@ -5,6 +5,9 @@
 # $ echo `mecab-config --dicdir`"/mecab-ipadic-neologd"
 
 import MeCab, sys, os, collections
+import matplotlib as mpl
+mpl.rcParams['font.family'] = 'Hiragino Sans'
+from matplotlib import pyplot as plt
 
 mecab = MeCab.Tagger('-d /usr/local/lib/mecab/dic/mecab-ipadic-neologd') # -d以下はechoで調べたパス
 
@@ -22,7 +25,6 @@ string_list = [s.replace('\n', '') for s in string_list]
 
 mecab.parse('')#文字列がGCされるのを防ぐ
 
-# 単語判別
 word_list = []
 for string in string_list:
     node = mecab.parseToNode(string)
@@ -39,5 +41,7 @@ wordlist = [s for s in word_list if s != '']
 #同じ単語の出現回数を調べる
 count_result = collections.Counter(wordlist) # 辞書型を返す
 for k, v in count_result.items():
-    if 100> v > 30: # 頻度回数調整
-        print(k, v)
+    if 100 > v & v > 30: # 頻度回数調整
+        plt.bar(k,v)
+plt.xticks(rotation=90)
+plt.show()
