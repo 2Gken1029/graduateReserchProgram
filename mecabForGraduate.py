@@ -6,7 +6,7 @@
 
 import MeCab, sys, os, collections
 import matplotlib as mpl
-mpl.rcParams['font.family'] = 'Hiragino Sans'
+mpl.rcParams['font.family'] = 'Hiragino Sans' # 日本語を含むフォントを指定
 from matplotlib import pyplot as plt
 
 mecab = MeCab.Tagger('-d /usr/local/lib/mecab/dic/mecab-ipadic-neologd') # -d以下はechoで調べたパス
@@ -43,5 +43,5 @@ count_result = collections.Counter(wordlist) # 辞書型を返す
 for k, v in count_result.items():
     if 100 > v & v > 30: # 頻度回数調整
         plt.bar(k,v)
-plt.xticks(rotation=90)
+plt.xticks(rotation=90) # X軸ラベルの向きを調整
 plt.show()
