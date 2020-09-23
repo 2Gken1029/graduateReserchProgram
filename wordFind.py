@@ -3,7 +3,7 @@
 
 import os, sys
 
-word_file = open('wordList.txt') # 単語リストを読み込み
+word_file = open('frequentList.txt') # 単語リストを読み込み
 word_list = word_file.readlines() # リストに書き込み
 word_file.close()
 
