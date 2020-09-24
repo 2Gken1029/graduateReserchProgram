@@ -23,11 +23,13 @@ string_list = [s.replace('\n', '') for s in string_list]
 mecab.parse('')#文字列がGCされるのを防ぐ
 
 word_list = []
+wordAllList = []
 for string in string_list:
     node = mecab.parseToNode(string)
     while node:
         #単語を取得
         word = node.surface
+        wordAllList.append(word)
         pos = node.feature.split(",")[1] # 品詞を取得
         if(pos == "一般"):
             word_list.append(word)
@@ -35,15 +37,16 @@ for string in string_list:
         node = node.next
 
 # リスト内の空白要素を削除
-wordlist_1 = [s for s in word_list if s != '']
+wordAllList = [s for s in wordAllList if s != '']
+wordlist = [s for s in word_list if s != '']
 # リスト内の特定の単語を削除
-wordlist_2 = [s for s in wordlist_1 if s != 'Waiting'] # 音声文字起こしの初期システム通知
-wordlist_3 = [s for s in wordlist_2 if s != 'for']
-wordlist_4 = [s for s in wordlist_3 if s != 'operation']
-wordlist_5 = [s for s in wordlist_4 if s != 'to']
-wordlist_6 = [s for s in wordlist_5 if s != 'complete']
-wordlist_7 = [s for s in wordlist_6 if s != 'Transcript']
-wordlist = [s for s in wordlist_7 if s != ':']
+wordAllList = [s for s in wordAllList if s != 'Transcript']
+wordlist = [s for s in wordlist if s != 'Transcript']
+wordAllList = [s for s in wordAllList if s != ':']
+wordlist = [s for s in wordlist if s != ':']
 
-print(wordlist)
-print(len(wordlist))
+#リスト内確認用
+#print(wordAllList)
+#print(wordlist)
+print("全単語数: " + str(len(wordAllList)))
+print("一般品詞数: " + str(len(wordlist)))
