@@ -21,3 +21,4 @@ for k,v in apper_word.items(): # 各valueの値を総合
     apper_word_value = v + apper_word_value
 
 print("keyとvalueの総合値: " + str(apper_word_len+apper_word_value))
+print("valueの総合値: " + str(apper_word_value))
