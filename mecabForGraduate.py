@@ -1,5 +1,5 @@
 #! python3
-# reCode.py - mecabForGraduate_ver2.pyを改変、品詞を一般のみに設定
+# mecabForGraduate.py - mecabForGraduate_ver2.pyを改変、品詞を一般のみに設定
 
 # Mecabがどこにあるか調べるコマンド
 # $ echo `mecab-config --dicdir`"/mecab-ipadic-neologd"

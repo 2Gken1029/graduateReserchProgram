@@ -1,5 +1,5 @@
 #! python3
-# mecabForGraduate.py - mecabSampleCodeを改変、単語ごとに区切る
+# mecabForGraduate_ver2.py - mecabSampleCodeを改変、単語ごとに区切る
 
 # Mecabがどこにあるか調べるコマンド
 # $ echo `mecab-config --dicdir`"/mecab-ipadic-neologd"
