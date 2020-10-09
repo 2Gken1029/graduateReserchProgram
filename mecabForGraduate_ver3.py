@@ -1,5 +1,5 @@
 #! python3
-# mecabSampleCode.py - Mecabの基本的な使い方を改変
+# mecabForGraduate_ver3.py - Mecabの基本的な使い方を改変
 
 # Mecabがどこにあるか調べるコマンド
 # $ echo `mecab-config --dicdir`"/mecab-ipadic-neologd"

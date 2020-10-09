@@ -1,5 +1,5 @@
 #! python3
-# mecabForSampleCode.py - mecabForGraduate_ver3.pyを改変、品詞を追加
+# mecabForGraduate_ver4.py - mecabForGraduate_ver2.pyを改変、品詞を一般のみに設定
 
 # Mecabがどこにあるか調べるコマンド
 # $ echo `mecab-config --dicdir`"/mecab-ipadic-neologd"
@@ -31,10 +31,7 @@ for string in string_list:
     while node:
         word = node.surface # 単語を取得
         pos = node.feature.split(",")[1] # 品詞を取得
-
-       # print(word + " : " + pos)
-
-        if(pos=="一般" or pos=="固有名詞" or pos=="サ変接続"): # 特定の名詞のみのリスト
+        if(pos == "一般"): # 特定の名詞のみのリスト
             word_list.append(word)
         #次の単語に進める
         node = node.next
@@ -45,8 +42,8 @@ wordlist = [s for s in word_list if s != '']
 #同じ単語の出現回数を調べる
 count_result = collections.Counter(wordlist) # 辞書型を返す
 for k, v in count_result.items():
-    if  50 > v & v > 20: # 頻度回数調整
-            plt.bar(k,v)
-            #print(k)
+    if 100 > v & v > 10: # 頻度回数調整
+        plt.bar(k,v)
+        print(k)
 plt.xticks(rotation=90) # X軸ラベルの向きを調整
 plt.show()
