@@ -42,10 +42,13 @@ for string in string_list:
 # リスト内の空白要素を削除
 wordlist = [s for s in word_list if s != '']
 
+print("総単語数: " + str(len(wordlist)))
+print("出現率1%以上でグラフ化")
+
 #同じ単語の出現回数を調べる
 count_result = collections.Counter(wordlist) # 辞書型を返す
 for k, v in count_result.items():
-    if  v > 10: # 頻度回数調整
+    if  v > len(wordlist)*0.01: # 頻度回数調整
             plt.barh(k,v) # 縦軸に変更する時は、"plt.bar(k,v)"
             #print(k)
 #plt.xticks(rotation=90) # X軸ラベルの向きを調整
