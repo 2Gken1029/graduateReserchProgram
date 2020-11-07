@@ -5,6 +5,9 @@ import summarize
 from collections import Counter
 import glob
 import sys
+import matplotlib as mpl
+mpl.rcParams['font.family'] = 'Hiragino Sans' # 日本語を含むフォントを指定
+from matplotlib import pyplot as plt
 
 if len(sys.argv) < 2:
     print("引数に文章ファイルが指定されていません.")
@@ -36,3 +39,15 @@ else:
     sys.exit()
 
 print(Counter(noun_list))
+
+#同じ単語の出現回数を調べる, グラフ軸を縦軸に変更する時は、"plt.bar(k,v)"
+count_result = Counter(noun_list) # 辞書型を返す
+if(option_name == "1" or option_name == "noun"):
+    for k, v in count_result.items():
+        if v > 5:
+            plt.barh(k,v)
+else:
+    for k, v in count_result.items():
+        plt.barh(k,v)
+#plt.xticks(rotation=90) # X軸ラベルの向きを調整
+plt.show()
