@@ -38,17 +38,18 @@ else:
     print("名詞: 1 or noun\n動詞: 2 or verb\n形容詞: 3 or adjective\n副詞: 4 or adverb")
     sys.exit()
 
-print(Counter(noun_list))
-
 #同じ単語の出現回数を調べる, グラフ軸を縦軸に変更する時は、"plt.bar(k,v)"
 count_result = Counter(noun_list) # 辞書型を返す
+percent = 0.0
 if(option_name == "1" or option_name == "noun" or
     option_name == "2" or option_name == "verb"):
     for k, v in count_result.items():
         if v > 5:
-            plt.barh(k,v)
+            percent = v / len(csv_list)
+            plt.barh(k,percent)
 else:
     for k, v in count_result.items():
-        plt.barh(k,v)
+        percent = v / len(csv_list)
+        plt.barh(k,percent)
 #plt.xticks(rotation=90) # X軸ラベルの向きを調整
 plt.show()
