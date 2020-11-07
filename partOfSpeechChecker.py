@@ -42,7 +42,8 @@ print(Counter(noun_list))
 
 #同じ単語の出現回数を調べる, グラフ軸を縦軸に変更する時は、"plt.bar(k,v)"
 count_result = Counter(noun_list) # 辞書型を返す
-if(option_name == "1" or option_name == "noun"):
+if(option_name == "1" or option_name == "noun" or
+    option_name == "2" or option_name == "verb"):
     for k, v in count_result.items():
         if v > 5:
             plt.barh(k,v)
