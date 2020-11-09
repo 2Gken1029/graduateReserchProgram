@@ -72,4 +72,4 @@ def adverb(filename):
             if isinstance(s,str) or np.isfinite(s):
                 adverb_list.append(s)
 
-        return adverb_list
+    return adverb_list
