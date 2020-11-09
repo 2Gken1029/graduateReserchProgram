@@ -22,15 +22,19 @@ noun_list = []
 
 # 全CSVファイルの特定の品詞を結合
 if(option_name == "1" or option_name == "noun"):
+    plt.title("son_名詞")
     for csv_name in csv_list:
         noun_list.extend(summarize.noun(csv_name))
 elif(option_name == "2" or option_name == "verb"):
+    plt.title("son_動詞")
     for csv_name in csv_list:
         noun_list.extend(summarize.verb(csv_name))
 elif(option_name == "3" or option_name == "adjective"):
+    plt.title("son_形容詞")
     for csv_name in csv_list:
         noun_list.extend(summarize.adjective(csv_name))
 elif(option_name == "4" or option_name == "adverb"):
+    plt.title("son_副詞")
     for csv_name in csv_list:
         noun_list.extend(summarize.adverb(csv_name))
 else:
