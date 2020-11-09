@@ -33,13 +33,14 @@ def noun(filename):
 def verb(filename):
     csvfile = pd.read_csv(str(filename),header=0)
     verb_list = []
+    header_list = list(csvfile) # 読み込んだcsvファイルのヘッダーリスト
 
-    first_list = list(csvfile['動詞'])
-
-    for s in first_list:
-        # nan以外の値をリストに格納
-        if isinstance(s,str) or np.isfinite(s):
-            verb_list.append(s)
+    if "動詞" in header_list: # 形容詞が存在するか
+        first_list = list(csvfile['動詞'])
+        for s in first_list:
+            # nan以外の値をリストに格納
+            if isinstance(s,str) or np.isfinite(s):
+                verb_list.append(s)
 
     return verb_list
 
@@ -47,13 +48,14 @@ def verb(filename):
 def adjective(filename):
     csvfile = pd.read_csv(str(filename),header=0)
     adjective_list = []
+    header_list = list(csvfile) # 読み込んだcsvファイルのヘッダーリスト
 
-    first_list = list(csvfile['形容詞'])
-
-    for s in first_list:
-        # nan以外の値をリストに格納
-        if isinstance(s,str) or np.isfinite(s):
-            adjective_list.append(s)
+    if "形容詞" in header_list: # 形容詞が存在するか
+        first_list = list(csvfile['形容詞'])
+        for s in first_list:
+            # nan以外の値をリストに格納
+            if isinstance(s,str) or np.isfinite(s):
+                adjective_list.append(s)
 
     return adjective_list
 
@@ -61,12 +63,13 @@ def adjective(filename):
 def adverb(filename):
     csvfile = pd.read_csv(str(filename),header=0)
     adverb_list = []
+    header_list = list(csvfile) # 読み込んだcsvファイルのヘッダーリスト
 
-    first_list = list(csvfile['形容詞'])
+    if "副詞" in header_list: # 形容詞が存在するか
+        first_list = list(csvfile['副詞'])
+        for s in first_list:
+            # nan以外の値をリストに格納
+            if isinstance(s,str) or np.isfinite(s):
+                adverb_list.append(s)
 
-    for s in first_list:
-        # nan以外の値をリストに格納
-        if isinstance(s,str) or np.isfinite(s):
-            adverb_list.append(s)
-
-    return adverb_list
+        return adverb_list
