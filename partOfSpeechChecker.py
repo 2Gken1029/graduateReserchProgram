@@ -17,7 +17,7 @@ if len(sys.argv) < 2:
 
 option_name = sys.argv[1]
 
-csv_list = glob.glob('csvfile/*.csv')
+csv_list = glob.glob('csvfile/son_csvfile/*.csv')
 noun_list = []
 
 # 全CSVファイルの特定の品詞を結合
