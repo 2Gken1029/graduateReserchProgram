@@ -48,7 +48,7 @@ percent = 0.0
 if(option_name == "1" or option_name == "noun" or
     option_name == "2" or option_name == "verb"):
     for k, v in count_result.items():
-        if v > 5:
+        if v > len(csv_list) * 0.5:
             percent = v / len(csv_list)
             plt.barh(k,percent)
 else:
