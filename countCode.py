@@ -16,6 +16,7 @@ string_file.close
 string_list = [s.replace('\n', '') for s in string_list]
 string_list = [s.replace('、', '') for s in string_list]
 string_list = [s.replace('。', '') for s in string_list]
+string_list = [s.replace('？', '') for s in string_list]
 # リスト内文字列を全て結合
 word_all = ''.join(string_list)
 
