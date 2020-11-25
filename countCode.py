@@ -12,8 +12,10 @@ string_file = open(sys.argv[1])
 string_list = string_file.readlines()
 string_file.close
 
-# リスト内文字列の"\n"を削除
+# リスト内文字列の特定文字を削除
 string_list = [s.replace('\n', '') for s in string_list]
+string_list = [s.replace('、', '') for s in string_list]
+string_list = [s.replace('。', '') for s in string_list]
 # リスト内文字列を全て結合
 word_all = ''.join(string_list)
 
