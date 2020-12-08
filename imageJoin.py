@@ -1,6 +1,7 @@
 #! python3
 # -*- coding: utf-8 -*-
 
+# このコードで困ったらよしくんに聞く
 # imageJoin.py - 画像を結合させる
 
 from PIL import Image
