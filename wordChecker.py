@@ -11,13 +11,12 @@ from matplotlib import pyplot as plt
 
 if len(sys.argv) == 3:
     path = sys.argv[1]
-    if int(sys.argv[2]) < 5:
+    if int(sys.argv[2]) < 6:
         part_of_speech = int(sys.argv[2])
     else:
         sys.exit()
 else:
-    path = 'son'
-    part_of_speech = 1
+    sys.exit()
 
 csv_list = glob.glob('../Documents/graduateReserchData/KHCoder_result/'+str(path)+'/*.csv')
 
@@ -45,7 +44,8 @@ for list in rowlist:
     elif list[1] == '副詞可能':
         adverb_list.append(list[0])
     else:
-        other_list.append(list[0])
+        if not list[1] == '品詞':
+            other_list.append(list[0])
 
 if part_of_speech == 1:
     count_result = Counter(noun_list)
@@ -63,6 +63,7 @@ percent = 0.0
 for k,v in count_result.items():
     if v > len(csv_list) * 0.4:
         percent = v / len(csv_list)
+        if percent > 1.0: percent = 1.0 # 100%以上のとき100%で打ち止め
         plt.barh(k,percent)
 
 if path == 'son':
