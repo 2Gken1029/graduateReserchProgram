@@ -9,12 +9,17 @@ import matplotlib as mpl
 mpl.rcParams['font.family'] = 'Hiragino Sans' # 日本語を含むフォントを指定
 from matplotlib import pyplot as plt
 
-# if len(sys.argv) < 2:
-#     print("引数に文章ファイルが指定されていません.")
-#     print("$ python3 wordChecker.py [文章ファイル]")
-#     sys.exit()
+if len(sys.argv) == 3:
+    path = sys.argv[1]
+    if int(sys.argv[2]) < 5:
+        part_of_speech = int(sys.argv[2])
+    else:
+        sys.exit()
+else:
+    path = 'son'
+    part_of_speech = 1
 
-csv_list = glob.glob('../Desktop/KHCoder_result/other/*.csv')
+csv_list = glob.glob('../Documents/graduateReserchData/KHCoder_result/'+str(path)+'/*.csv')
 
 rowlist = []
 
@@ -42,12 +47,29 @@ for list in rowlist:
     else:
         other_list.append(list[0])
 
-count_result = Counter(adverb_list)
+if part_of_speech == 1:
+    count_result = Counter(noun_list)
+elif part_of_speech == 2:
+    count_result = Counter(verb_list)
+elif part_of_speech == 3:
+    count_result = Counter(adjective_list)
+elif part_of_speech == 4:
+    count_result = Counter(adverb_list)
+elif part_of_speech == 5:
+    count_result = Counter(other_list)
+
 percent = 0.0
 
 for k,v in count_result.items():
-    if v > len(csv_list) * 0.2:
+    if v > len(csv_list) * 0.4:
         percent = v / len(csv_list)
         plt.barh(k,percent)
+
+if path == 'son':
+    plt.title('オレオレ詐欺(息子)')
+elif path == 'police':
+    plt.title('オレオレ詐欺(警察官)')
+elif path == 'other':
+    plt.title('還付金詐欺')
 
 plt.show()
