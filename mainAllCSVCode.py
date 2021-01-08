@@ -23,14 +23,15 @@ wordlist = []
 
 for list in rowlist:
     if not list[1] == '品詞':
-        wordlist.append(list[0])
+        if not list[1] == '感動詞':
+            wordlist.append(list[0])
 
 count_result = Counter(wordlist)
 
 percent = 0.0
 
 for k,v in count_result.items():
-    if v > len(csv_list) * 0.35: # 割合調整
+    if v > len(csv_list) * 0.3: # 割合調整
         percent = v / len(csv_list)
         if percent > 1.0: percent = 1.0 # 100%以上のとき100%で打ち止め
         plt.barh(k,percent)
